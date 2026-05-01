@@ -1,0 +1,279 @@
+create database hotwax_system;
+use hotwax_system;
+
+
+-- --use DDL commands--
+-- create
+-- drop
+-- alter
+-- truncate
+
+create table employe(
+employe_id int,
+employe_Name Varchar(20),
+employe_designation varchar(20),
+employe_salary int);
+
+
+Insert into employe values (647823001,"Ashutosh mishra","java developer",40000),
+(647823002,"Anshu sharma","SQL developer",35000),
+(647823003,"Rahul sharma","C++ developer",30000),
+(647823004,"yashwant soni","SQL developer",20000);
+
+select * from employe;
+select employe_name from employe;
+
+Alter table employe add (DOB date);
+insert into employe (DOB) values ('2024-12-01'),
+('2025-01-01'),
+('2026-01-01'),
+('2024-11-01');
+
+Alter table employe drop column DOB;
+
+Insert into employe (remark) value ('excellent'),
+('good'),
+('excellent'),
+('Average');
+
+DELETE FROM employe
+WHERE remark IN ('excellent','good','Average')
+AND employe_id IS NULL;
+
+Alter table employe add remark varchar(10) ;
+
+
+
+Update employe set remark ='excellent' where employe_id = 647823001;
+update employe set remark ='good' where employe_id = 647823002;
+update employe set remark ='excellent' where employe_id = 647823003;
+update employe set remark ='Average' where employe_id = 647823004;
+
+
+create table experiment(
+exp_name int,
+exp_number int primary key
+);
+
+
+ALTER TABLE experiment
+MODIFY exp_name VARCHAR(50);
+
+
+
+INSERT INTO experiment
+VALUES ('expname1',1), ('expname2',2);
+
+SELECT * FROM experiment;
+
+truncate table experiment;
+
+
+-- use DML commands--
+-- select
+-- insert 
+-- update 
+-- delete
+
+
+create table Manupulaton(
+DML_id int primary key,
+DML_name varchar(20),
+DML_age int);
+
+insert into Manupulaton values(1,'select_1',14),
+(2,'Insert_2',16),
+(3,'Updte_3',18),
+(4,'Delete_1',19),
+(5,'select_3',12);
+
+select DML_name from Manupulaton;
+select * from Manupulaton;
+
+update Manupulaton set DMl_name ='update_2.0' where DML_id=5;
+update Manupulaton set DML_age = 19 where DML_id=5;
+
+delete from Manupulaton where DML_id=5;
+delete from Manupulaton;
+
+
+-- Arthmatic operaters--
+-- comparision operation-- 
+-- logical operators-- 
+
+
+
+ 
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY ,
+  emp_name VARCHAR(50) NOT NULL,
+  salary DECIMAL(10,2) NOT NULL,
+  location VARCHAR(50),
+  department VARCHAR(50));
+  
+  INSERT INTO employee (emp_id, emp_name, salary, location, department) VALUES
+(1, 'Anshul', 30000, 'Indore', 'IT'),
+(2, 'Rahul', 25000, 'Bhopal', 'HR'),
+(3, 'Priya', 28000, 'Delhi', 'Finance'),
+(4, 'Amit', 35000, 'Mumbai', 'IT'),
+(5, 'Neha', 27000, 'Pune', 'Marketing'),
+(6, 'Rohit', 40000, 'Bangalore', 'IT'),
+(7, 'Sneha', 32000, 'Hyderabad', 'HR'),
+(8, 'Vikas', 29000, 'Jaipur', 'Finance'),
+(9, 'Pooja', 31000, 'Chennai', 'Marketing'),
+(10, 'Karan', 36000, 'Kolkata', 'IT'),
+(11, 'Simran', 33000, 'Lucknow', 'HR'),
+(12, 'Arjun', 45000, 'Noida', 'IT'),
+(13, 'Meena', 26000, 'Surat', 'Finance'),
+(14, 'Suresh', 24000, 'Patna', 'HR'),
+(15, 'Kavita', 30000, 'Nagpur', 'Marketing'),
+(16, 'Deepak', 38000, 'Chandigarh', 'IT'),
+(17, 'Ritika', 34000, 'Agra', 'Finance'),
+(18, 'Manish', 37000, 'Kanpur', 'IT'),
+(19, 'Anjali', 28000, 'Varanasi', 'HR'),
+(20, 'Yash', 42000, 'Ahmedabad', 'IT'),
+(21, 'Nisha', 31000, 'Indore', 'Marketing'),
+(22, 'Tarun', 29000, 'Bhopal', 'Finance'),
+(23, 'Komal', 27000, 'Delhi', 'HR'),
+(24, 'Harsh', 36000, 'Mumbai', 'IT'),
+(25, 'Payal', 33000, 'Pune', 'Marketing'),
+(26, 'Gaurav', 41000, 'Bangalore', 'IT'),
+(27, 'Shreya', 35000, 'Hyderabad', 'HR'),
+(28, 'Abhishek', 30000, 'Jaipur', 'Finance'),
+(29, 'Tanya', 32000, 'Chennai', 'Marketing'),
+(30, 'Mohit', 39000, 'Kolkata', 'IT'),
+(31, 'Divya', 34000, 'Lucknow', 'HR');
+
+select* from employee;
+select emp_id,emp_name,salary,location,salary + 10000 from employee;
+select emp_id,emp_name,salary,location,salary - 10000 AS new_salary from employee;
+select emp_id,emp_name,salary,location,salary * 2 AS new_salary from employee;
+select emp_id,emp_name,salary,location,salary / 5 AS new_salary from employee;
+
+
+select *from employee where salary=33000;
+select * from employee where salary !=30000;
+select * from employee where salary >= 30000;
+select * from employee where salary <=30000;
+
+
+select * from employee where salary >30000 and salary <33000;
+select * from employee where salary >30000 or salary <33000;
+
+select distinct department from employee; 
+select count(*) from employee;
+select sum(salary) AS sumallsalary from employee;
+select avg(salary) AS averagesalary from employee;
+select max(salary) as max_salary from employee;
+select min(salary) as max_salary from employee;
+
+select * from employee limit 4;
+select * from employee order by salary ASC;
+select * from employee order by salary DESC;
+select * from employee order by salary ASC limit 2;
+SELECT * FROM employee ORDER BY RAND() limit 3;
+
+select * from employee where emp_id in(1,4,5,8,6);
+
+select * from employee where department = 'it' AND salary=30000;
+select * from employee where department = 'hr' or salary=36000;
+
+select * from employee where emp_name like '%shul';
+select * from employee where emp_name like '%l';
+select * from employee where emp_name like '%s_';
+
+
+-- joins in sql
+
+CREATE TABLE employee_table (
+    empid INT PRIMARY KEY,
+    empname VARCHAR(30),
+    age INT,
+    designation VARCHAR(30),
+    city VARCHAR(20),
+    salary INT,
+    dept_id INT);
+
+INSERT INTO employee_table VALUES
+(101, 'rahul', 26, 'data analyst', 'hyderabad', 40000, 16),
+(102, 'keerthi', 27, 'SDE', 'bangalore', 35000, 11),
+(103, 'varun', 24, 'system engineer', 'hyderabad', 30000, 17),
+(104, 'sanjana', 26, 'accounts executive', 'chennai', 32000, 13),
+(105, 'kiran', 27, 'HR manager', 'mumbai', 50000, 12),
+(106, 'nitya', 25, 'SDE', 'pune', 40000, 11),
+(107, 'ajay', 28, 'General manager', 'vizag', 60000, 12);
+
+select * from employee_table;
+
+
+update employee_table set empid=1011 where empid=101;
+update employee_table set empid=1012 where empid=102;
+update employee_table set empid=1013 where empid=103;
+update employee_table set empid=1014 where empid=104;
+update employee_table set empid=1015 where empid=105;
+update employee_table set empid=1016 where empid=106;
+update employee_table set empid=1017 where empid=107;
+
+
+CREATE TABLE department_table (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
+
+INSERT INTO department_table VALUES
+(11, 'IT'),
+(12, 'HR'),
+(13, 'Finance'),
+(16, 'Analytics'),
+(17, 'Engineering');
+
+select * from department_table;
+
+select employee_table.empid ,employee_table.empname ,employee_table.designation , department_table. dept_id ,department_table.dept_name from
+employee_table inner join department_table on employee_table.dept_id = department_table.dept_id;
+
+
+CREATE TABLE projects (
+    project_id INT PRIMARY KEY,
+    empid INT,
+    project_name VARCHAR(50),
+    project_manager VARCHAR(20)
+);
+
+INSERT INTO projects VALUES
+(110, 1015, 'ERP system', 'vinay'),
+(210, 1017, 'employee assistance program', 'priyanka'),
+(310, 1014, 'cyber security', 'karthik'),
+(410, 1011, 'network solutions', 'aman'),
+(510, 1017, 'android development', 'raghav'),
+(610, 1019, 'data warehousing', 'sneha'),
+(710, 1015, 'image encryption', 'bhavya');
+
+select * from projects;
+
+select e.empid, e.empname,p.project_name, p.project_manager from employee_table e inner join projects p on e.empid = p.empid;
+
+-- right join-- 
+SELECT e.empname, p.project_name FROM employee_table e RIGHT JOIN projects p ON e.empid = p.empid;
+
+-- left join
+SELECT e.empname, p.project_name FROM employee_table e LEFT JOIN projects p ON e.empid = p.empid;
+
+
+-- full join
+
+SELECT e.empname, p.project_name FROM employee_table e LEFT JOIN projects p ON e.empid = p.empid
+
+UNION
+
+SELECT e.empname, p.project_name FROM employee_table e RIGHT JOIN projects p ON e.empid = p.empid;
+
+
+
+
+-- subquery
+
+SELECT empname FROM employee_table WHERE salary = (SELECT MAX(salary) FROM employee_table);
+SELECT empname FROM employee_table WHERE dept_id IN (SELECT dept_id FROM department_table WHERE dept_name = 'IT');
+SELECT empname FROM employee_table WHERE empid IN (SELECT empid FROM projects);
+SELECT * FROM employee_table WHERE salary > (SELECT AVG(salary) FROM employee_table);
