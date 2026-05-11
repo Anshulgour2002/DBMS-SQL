@@ -1,6 +1,5 @@
 use hotwax_system;
 show tables;
-select * from employee;
 select salary from employee where department='it';
 select  sum(salary) as total_it from employee where department='it' ;
 select * from employee where department = 'it';
